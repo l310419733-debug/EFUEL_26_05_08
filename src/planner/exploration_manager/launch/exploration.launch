@@ -1,0 +1,40 @@
+<launch>
+  <arg name="drone_id" default="1"/>
+  <arg name="drone_num" default="1"/>
+  <arg name="init_x" default="0"/>
+  <arg name="init_y" default="0"/>
+  <arg name="init_z" default="0"/>
+  <arg name="map_size_x" default="40.0"/>
+  <arg name="map_size_y" default="40.0"/>
+  <arg name="map_size_z" default="2.0"/>
+
+  <arg name="odometry_topic" default="/vins_fusion/imu_propagate"/>
+  <arg name="sensor_pose_topic" default="/vins_fusion/pose"/>
+  <arg name="depth_topic" default="/camera/depth/image_rect_raw"/>
+  <arg name="cloud_topic" default="/camera/depth/color/points"/>
+
+  <arg name="cx" default="324.0879821777344"/>
+  <arg name="cy" default="239.10362243652344"/>
+  <arg name="fx" default="385.69793701171875"/>
+  <arg name="fy" default="385.69793701171875"/>
+
+  <include file="$(find exploration_manager)/launch/single_drone_exploration_realworld.xml">
+    <arg name="drone_id" value="$(arg drone_id)"/>
+    <arg name="drone_num" value="$(arg drone_num)"/>
+    <arg name="init_x" value="$(arg init_x)"/>
+    <arg name="init_y" value="$(arg init_y)"/>
+    <arg name="init_z" value="$(arg init_z)"/>
+    <arg name="map_size_x" value="$(arg map_size_x)"/>
+    <arg name="map_size_y" value="$(arg map_size_y)"/>
+    <arg name="map_size_z" value="$(arg map_size_z)"/>
+    <arg name="odom_prefix" value="odom"/>
+    <arg name="simulation" value="false"/>
+    <arg name="odometry_topic" value="$(arg odometry_topic)"/>
+    <arg name="sensor_pose_topic" value="$(arg sensor_pose_topic)"/>
+    <arg name="depth_topic" value="$(arg depth_topic)"/>
+    <arg name="cx" value="$(arg cx)"/>
+    <arg name="cy" value="$(arg cy)"/>
+    <arg name="fx" value="$(arg fx)"/>
+    <arg name="fy" value="$(arg fy)"/>
+  </include>
+</launch>
