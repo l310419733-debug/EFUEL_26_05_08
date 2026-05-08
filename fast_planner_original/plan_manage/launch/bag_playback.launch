@@ -1,0 +1,8 @@
+<launch>
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find ego_planner)/launch/bag_playback.rviz"
+    required="true" />
+</launch>
